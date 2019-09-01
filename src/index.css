@@ -121,3 +121,11 @@
 .section-hover:hover {
   background-color: black !important;
 }
+
+.ant-breadcrumb-separator {
+  font-size: 40px;
+  padding-top: 50px !important;
+  margin-top: 100px !important;
+  color: red !important;
+  font-style: "Open Sans";
+}

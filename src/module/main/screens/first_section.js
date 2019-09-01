@@ -22,7 +22,7 @@ class App extends Component {
           <section
             style={{
               width: "100%",
-              height: "600px",
+              height: "550px",
               backgroundImage: `url(${First})`
             }}
           >
@@ -74,7 +74,7 @@ class App extends Component {
           <section
             style={{
               width: "100% ",
-              height: "600px",
+              height: "550px",
               backgroundSize: "cover",
               backgroundImage: `url(${Second})`
             }}
@@ -111,7 +111,7 @@ class App extends Component {
           <section
             style={{
               width: "100% ",
-              height: "600px",
+              height: "550px",
               backgroundSize: "cover",
               backgroundImage: `url(${Thiord})`
             }}

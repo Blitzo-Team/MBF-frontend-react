@@ -1,17 +1,9 @@
 import React, { Component } from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
-import { Popover, Button, Layout, Menu, Row, Col, Icon } from "antd";
+import { Button, Layout, Menu, Row, Col, Icon } from "antd";
 import "./index.css";
-import Dog from "./module/assets/cute.png";
-import {
-  FOOTER_INAGES,
-  MENU_ITEMS,
-  COMPANY_LIST,
-  MEALS,
-  ACCOUNT,
-  CONTACT,
-  HEADER_BOUNCE
-} from "./data";
+import Footer from "./components/footer";
+import { MENU_ITEMS, HEADER_BOUNCE } from "./data";
 import { Animated } from "react-animated-css";
 
 //Components
@@ -21,7 +13,7 @@ import ModalSlide from "./forms/banner/index";
 import Index from "module/main/index";
 import Plans from "./module/plans/index";
 
-const { Header, Footer, Content, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 const { SubMenu } = Menu;
 
 class App extends Component {
@@ -173,13 +165,13 @@ class App extends Component {
             }
           >
             <Row>
-              <Col span={11}>
+              <Col span={10}>
                 <ul
                   style={{
                     listStyle: "none",
                     opacity: 1,
                     paddingTop: "50px",
-                    marginLeft: "330px"
+                    marginLeft: "250px"
                   }}
                 >
                   {HEADER_BOUNCE.map(item => {
@@ -187,7 +179,7 @@ class App extends Component {
                       <li>
                         <a
                           href={item.url}
-                          style={{ color: "white" }}
+                          style={{ color: "white", fontSize: "16px" }}
                           onClick={() => this.setState({ hover: false })}
                         >
                           <Animated animationOut="bounce" isVisible={false}>
@@ -200,13 +192,14 @@ class App extends Component {
                 </ul>
               </Col>
 
-              <Col span={3}>
+              <Col span={4}>
                 <Animated animationOut="bounce" isVisible={false}>
                   <ul
                     style={{
                       listStyle: "none",
                       opacity: 1,
-                      paddingTop: "50px"
+                      paddingTop: "50px",
+                      fontSize: "16px"
                     }}
                   >
                     <li>
@@ -222,13 +215,14 @@ class App extends Component {
                 </Animated>
               </Col>
 
-              <Col span={3}>
+              <Col span={4}>
                 <Animated animationOut="bounce" isVisible={false}>
                   <ul
                     style={{
                       listStyle: "none",
                       opacity: 1,
-                      paddingTop: "50px"
+                      paddingTop: "50px",
+                      fontSize: "16px"
                     }}
                   >
                     <li>
@@ -254,117 +248,7 @@ class App extends Component {
             </HashRouter>
           </Content>
 
-          <Footer style={{ background: "white", marginTop: "20px" }}>
-            <Row>
-              <Col span={7}>
-                <div className="footer-logo" />
-                <div style={{ marginLeft: "5px" }}>
-                  {FOOTER_INAGES.map(item => {
-                    return (
-                      <a>
-                        <img
-                          src={item.url}
-                          style={{
-                            width: item.width,
-                            marginRight: item.margin
-                          }}
-                          key={item}
-                        />
-                      </a>
-                    );
-                  })}
-                </div>
-              </Col>
-
-              <Col span={5} style={{ marginTop: "20px" }}>
-                <div>
-                  <ul style={{ listStyleType: "none" }}>
-                    <h6>COMPANY</h6>
-                    {COMPANY_LIST.map(item => {
-                      return (
-                        <li key={item.key}>
-                          <a> {item.title} </a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </Col>
-
-              <Col span={4} style={{ marginTop: "20px" }}>
-                <div>
-                  <ul style={{ listStyleType: "none" }}>
-                    <h6>MEALS</h6>
-                    <h6 className="rotated-footer">PACKS MEALS PLANS</h6>
-                    {MEALS.map(item => {
-                      return (
-                        <li key={item.key}>
-                          <a> {item.title} </a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </Col>
-
-              <Col span={4} style={{ marginTop: "20px" }}>
-                <div>
-                  <ul style={{ listStyleType: "none" }}>
-                    <h6>ACCOUNT</h6>
-                    {ACCOUNT.map(item => {
-                      return (
-                        <li key={item.key}>
-                          <a> {item.title} </a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  <img
-                    src={Dog}
-                    style={{ height: "50px", marginLeft: "30px" }}
-                  />
-                </div>
-              </Col>
-
-              <Col span={4} style={{ marginTop: "20px" }}>
-                <div>
-                  <ul style={{ listStyleType: "none" }}>
-                    <h6>CONTACT US</h6>
-                    {CONTACT.map(item => {
-                      return (
-                        <li key={item.key}>
-                          <a> {item.title} </a>
-                        </li>
-                      );
-                    })}
-                    <a className="icons-social">
-                      <Icon type="facebook" theme="filled" />
-                    </a>
-                    <a className="icons-social">
-                      <Icon type="instagram" theme="filled" />
-                    </a>
-                  </ul>
-                </div>
-              </Col>
-            </Row>
-          </Footer>
-          <Footer
-            style={{
-              background: "#020003",
-              color: "#C9C9C9",
-              fontSize: "12px",
-              float: "left"
-            }}
-          >
-            <div style={{ float: "left" }}>
-              Copyright © 2015 - 2019 My Body Fuel Pty Ltd. All rights reserved
-              | Developed by Blitzo.
-            </div>
-
-            <div style={{ fontSize: "12px", textAlign: "right" }}>
-              DISCLAIMER | PRIVACY POLICY | TERMS
-            </div>
-          </Footer>
+          <Footer />
         </Layout>
 
         <ModalSlide

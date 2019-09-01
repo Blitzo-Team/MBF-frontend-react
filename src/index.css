@@ -1,70 +1,123 @@
 .ant-layout-header {
-    border-top: 28px solid #6ACBDF;
-    opacity: 1;
-    background: white; 
-    padding: 0px 0px !important;
-    height: 64px !important;
-    padding: 0 50px;
-    line-height: 64px;
-    margin: 0px 0px 100px 0px;
+  border-top: 28px solid #6acbdf;
+  opacity: 1;
+  background: white;
+  padding: 0px 0px !important;
+  height: 64px !important;
+  padding: 0 50px;
+  line-height: 64px;
+  margin: 0px 0px 100px 0px;
 }
 
-.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected 
-{
-    color: #1890ff;
-    border-bottom: 2px solid white !important;
+.ant-menu-horizontal > .ant-menu-item:hover,
+.ant-menu-horizontal > .ant-menu-submenu:hover,
+.ant-menu-horizontal > .ant-menu-item-active,
+.ant-menu-horizontal > .ant-menu-submenu-active,
+.ant-menu-horizontal > .ant-menu-item-open,
+.ant-menu-horizontal > .ant-menu-submenu-open,
+.ant-menu-horizontal > .ant-menu-item-selected,
+.ant-menu-horizontal > .ant-menu-submenu-selected {
+  color: #1890ff;
+  border-bottom: 2px solid white !important;
 }
 
 .header-logo {
-    width: 120px;
-    height: 100px;
-    /* background: black; */
-    background: url('./module/assets/logo.png');
-    margin: 16px 28px 16px 0;
-    float: left;
-    border: '1px solid black';
-    margin-left: 80px;
-  }
+  width: 120px;
+  height: 100px;
+  /* background: black; */
+  background: url("./module/assets/logo.png");
+  margin: 16px 28px 16px 0;
+  float: left;
+  border: "1px solid black";
+  margin-left: 20px;
+}
 
 .footer-logo {
-    width: 170px;
-    height: 130px;
-    /* background: black; */
-    background: url('./module/assets/footer.png');
-    margin: 16px 28px 16px 0;
-    border: '1px solid black';
-    margin-left: 30px;
-  }
+  width: 170px;
+  height: 130px;
+  /* background: black; */
+  background: url("./module/assets/footer.png");
+  margin: 16px 28px 16px 0;
+  border: "1px solid black";
+  margin-left: 0px;
+}
 
 .rotated-footer {
-    position: absolute;
-    color: #6ACBDF;
-    top: 240;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: none;
-    transform-origin: 0 0;
-    transform: rotate(-90deg);
+  position: absolute;
+  color: #6acbdf;
+  top: 240;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: none;
+  transform-origin: 0 0;
+  transform: rotate(-90deg);
 }
 
 .icons-social {
-    font-size: 30px;
-    margin: 0px 5px;
+  font-size: 30px;
+  margin: 0px 5px;
 }
 
 .first-page {
-    top: 0px;
-    left: 184px;
-    height: 100px;
-    text-align: right;
-    font: Extrabold 147px/158px Open Sans;
-    letter-spacing: 7.5px;
-    color: #6ACBDF;
+  top: 0px;
+  left: 184px;
+  height: 100px;
+  text-align: right;
+  font: Extrabold 147px/158px Open Sans;
+  letter-spacing: 7.5px;
+  color: #6acbdf;
 }
 
 .second-page {
-    background: url('./module/assets/slide-2.png');
-    width: '100%'; 
-    height: '600px';
+  background: url("./module/assets/slide-2.png");
+  width: "100%";
+  height: "600px";
+}
+
+.ant-popover-inner-content {
+  top: 190px;
+  left: 0px;
+  /* width: 1920px; */
+  height: 226px;
+  background: #6acbdf 0% 0% no-repeat padding-box;
+  opacity: 0.3;
+  filter: alpha(opacity=60);
+}
+
+/* .hovering-menu:hover {
+    width: 1110px; 
+    height: 200px; 
+    z-Index: 999;
+    display: block;
+} */
+
+.header-menu {
+  margin-top: 150px;
+  border: 1px solid #6acbdf;
+  width: 1110px;
+  height: 200px;
+  position: fixed;
+  z-index: 999;
+  background-color: #6acbdf;
+  opacity: 0.7;
+  filter: alpha(opacity=60);
+  display: none;
+}
+
+.header-menu-not {
+  margin-top: 150px;
+  border: 1px solid #6acbdf;
+  width: 1110px;
+  height: 200px;
+  position: fixed;
+  z-index: 999;
+  background-color: #6acbdf;
+  opacity: 0.7;
+  filter: alpha(opacity=60);
+  display: block;
+}
+
+.section-hover:hover {
+  background-color: black !important;
 }

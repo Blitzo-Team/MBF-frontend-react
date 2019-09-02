@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Input, Radio, Button } from "antd";
 import Male from "../../assets/male.png";
 import Female from "../../assets/female.png";
+import {Link} from 'react-router-dom';
 
 const WrapperForm = Form.create()(
   class extends Component {
@@ -21,11 +22,12 @@ const WrapperForm = Form.create()(
           <Form.Item>
             {getFieldDecorator("gender", {
               rules: [
-                { required: false, message: "Please input your username!" }
+                { required: true, message: "Please input your username!" }
               ]
             })(
               <Radio.Group size="large">
                 <div
+                  className="radio-gender"
                   style={{
                     border: "1px solid white",
                     padding: "5px",
@@ -35,6 +37,7 @@ const WrapperForm = Form.create()(
                   <img src={Male} style={{ width: "70px" }} />
 
                   <Radio.Button
+                    
                     value="male"
                     style={{
                       marginLeft: "20px",
@@ -51,6 +54,7 @@ const WrapperForm = Form.create()(
                 </div>
                 &nbps;
                 <div
+                  className="radio-gender"
                   style={{
                     border: "1px solid white",
                     padding: "5px",
@@ -81,7 +85,7 @@ const WrapperForm = Form.create()(
           <Form.Item>
             {getFieldDecorator("kilogram", {
               rules: [
-                { required: false, message: "Please input your username!" }
+                { required: true, message: "Please input your username!" }
               ]
             })(
               <Input
@@ -101,30 +105,33 @@ const WrapperForm = Form.create()(
 
           <Form.Item>
             <div style={{ marginTop: "50px" }}>
-              <Button
-                onClick={() => this.handleSubmit()}
-                style={{
-                  backgroundColor: "black",
-                  color: "white",
-                  height: "50px",
-                  borderRadius: "10px",
-                  marginRight: "10px"
-                }}
-              >
-                1-3 Days
-              </Button>
+              <Link to={'/plans/size'}>
+                <Button
+                  onClick={() => {  this.handleSubmit()}}
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                    height: "50px",
+                    borderRadius: "10px",
+                    marginRight: "10px"
+                  }}>
+                  1-3 Days
+                </Button>
+              </Link>
+              
+              <Link to={'/plans/size'}>
+                <Button
+                  onClick={() => {  this.handleSubmit()}}
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                    height: "50px",
+                    borderRadius: "10px"
+                  }}>
+                  4+ Days
+                </Button>
+              </Link>
 
-              <Button
-                onClick={() => this.handleSubmit()}
-                style={{
-                  backgroundColor: "black",
-                  color: "white",
-                  height: "50px",
-                  borderRadius: "10px"
-                }}
-              >
-                1-4 Days
-              </Button>
             </div>
           </Form.Item>
         </Form>
@@ -143,7 +150,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <WrapperForm />
+        <WrapperForm history={this.props.history}/>
       </div>
     );
   }

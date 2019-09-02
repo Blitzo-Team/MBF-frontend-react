@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import First from "../../assets/body.png";
 import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 import { ReactComponent as Plus } from "../../assets/plus.svg";
-import MuscleForm from "../forms/muscle";
+import MuscleForm from "../forms/days";
 
-import { Button, Row, Col, Icon, Breadcrumb, Progress } from "antd";
+import { Button, Row, Col, Breadcrumb, Progress } from "antd";
 
 class App extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class App extends Component {
   breadCrumps = () => {
     return (
       <div>
-        <Progress percent={20} showInfo={false} status="active" />
+        <Progress percent={54} showInfo={false} status="active" />
         <Breadcrumb
           separator=""
           style={{ fontSize: "19px", marginTop: "0px", display: "inline" }}
@@ -74,20 +74,18 @@ class App extends Component {
             {/* Initial Secition */}
             <Row gutter={24}>
               <Col
-                span={6}
+                span={7}
                 style={{
                   color: "#616161",
                   height: "120px",
-                  borderRight: "2px solid #6ACBDF"
+                  borderRight: "2px solid #6ACBDF",
+                  
                 }}
               >
-                STAGE 1/5
+                STAGE 4/5
               </Col>
 
-              <Col span={18}>
-                <p style={{ color: "#6ACBDF", fontSize: "15px" }}>
-                  PLAN YOUR MEAL
-                </p>
+              <Col span={17}>
                 <p
                   style={{
                     fontStyle: " Open Sans",
@@ -95,27 +93,25 @@ class App extends Component {
                     fontSize: "20px"
                   }}
                 >
-                  Are you make or female?
+                  How many days would you like meals for?
                 </p>
               </Col>
             </Row>
 
-            <Row gutter={20} style={{ marginTop: "20px" }}>
+            <Row gutter={20} style={{ marginTop: "150px" }}>
               <Col
-                span={6}
+                span={7}
                 style={{
                   color: "#616161",
                   height: "120px",
-                  borderRight: "2px solid #6ACBDF"
+                  borderRight: "2px solid #6ACBDF",
+                  fontSize: '13px',
                 }}
               >
-                STAGE 2/5
+                  OUR RECOMMENDATION
               </Col>
 
-              <Col span={18}>
-                <p style={{ color: "#6ACBDF", fontSize: "15px" }}>
-                  PLAN YOUR MEAL
-                </p>
+              <Col span={17}>
                 <p
                   style={{
                     fontStyle: " Open Sans",
@@ -123,35 +119,7 @@ class App extends Component {
                     fontSize: "20px"
                   }}
                 >
-                  What's your current bodyweight?
-                </p>
-              </Col>
-            </Row>
-
-            <Row gutter={20} style={{ marginTop: "20px" }}>
-              <Col
-                span={6}
-                style={{
-                  color: "#616161",
-                  height: "120px",
-                  borderRight: "2px solid #6ACBDF"
-                }}
-              >
-                STAGE 3/5
-              </Col>
-
-              <Col span={18}>
-                <p style={{ color: "#6ACBDF", fontSize: "15px" }}>
-                  PLAN YOUR MEAL
-                </p>
-                <p
-                  style={{
-                    fontStyle: " Open Sans",
-                    color: "#616161",
-                    fontSize: "20px"
-                  }}
-                >
-                  How many days per week do you workout?
+                  We'll have your reach your goals in no time. We recommend.
                 </p>
               </Col>
             </Row>

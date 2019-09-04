@@ -50,16 +50,14 @@ class second_section extends Component {
                   backgroundImage: `url(${item.image})`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover"
-                }}
-              >
+                }}>
                 <p
                   style={{
                     fontWeight: "bolder",
                     fontSize: "24px",
                     marginTop: "200px",
                     color: "white"
-                  }}
-                >
+                  }}>
                   {item.title}
                 </p>
 

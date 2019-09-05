@@ -1,19 +1,17 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
-import { Form, Drawer, Button, } from "antd";
-import UploadBreakfast from '../../../components/multiple_upload';
-import { breakFastAdd } from '../../actionCreator';
+import { connect } from "react-redux";
+import { Form, Drawer, Button } from "antd";
+import UploadBreakfast from "../../../components/multiple_upload";
+import { breakFastAdd } from "../../actionCreator";
 
 const WrapperForm = Form.create()(
   class extends Component {
     handleSubmit = e => {
       e.preventDefault();
       this.props.form.validateFields((err, values) => {
-
         if (!err) {
-
-          this.props.breakFastAdd(values)
-
+          this.props.breakFastAdd(values);
+          this.props.onClose();
         }
       });
     };
@@ -22,17 +20,15 @@ const WrapperForm = Form.create()(
       const { getFieldDecorator } = this.props.form;
 
       return (
-        <Form >
+        <Form>
           <Form.Item>
             {getFieldDecorator("breakfast", {
               rules: [
                 { required: false, message: "Please input your username!" }
               ]
-            })(
-                <UploadBreakfast />
-            )}
+            })(<UploadBreakfast />)}
           </Form.Item>
-{/*       
+          {/*       
           <Form.Item style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
             <Button
               htmlType="submit"
@@ -57,17 +53,17 @@ const WrapperForm = Form.create()(
 
           <div
             style={{
-              position: 'absolute',
+              position: "absolute",
               left: 0,
               bottom: 0,
-              width: '100%',
-              borderTop: '1px solid #e9e9e9',
-              padding: '10px 16px',
-              background: '#fff',
-              textAlign: 'right',
+              width: "100%",
+              borderTop: "1px solid #e9e9e9",
+              padding: "10px 16px",
+              background: "#fff",
+              textAlign: "right"
             }}
           >
-            <Button onClick={this.Close} style={{ marginRight: 8 }}>
+            <Button onClick={this.props.onClose} style={{ marginRight: 8 }}>
               Cancel
             </Button>
             <Button onClick={this.handleSubmit} type="primary">
@@ -90,22 +86,17 @@ class App extends Component {
   render() {
     return (
       <div>
-            <Drawer
-                title=" Add Menu Meals for Breakfast"
-                width={500}
-                placement="right"
-                closable={false}
-                onClose={this.props.onClose}
-                visible={this.props.visible}
-                footer={true}
-                // visible={false}
-            >
-                
-            <WrapperForm 
-              breakFastAdd={breakFastAdd}
-              { ...this.props}
-            />
-
+        <Drawer
+          title=" Add Menu Meals for Breakfast"
+          width={500}
+          placement="right"
+          closable={false}
+          onClose={this.props.onClose}
+          visible={this.props.visible}
+          footer={true}
+          // visible={false}
+        >
+          <WrapperForm breakFastAdd={breakFastAdd} {...this.props} />
         </Drawer>
       </div>
     );
@@ -114,6 +105,9 @@ class App extends Component {
 
 const mapDispatchToProps = {
   breakFastAdd
-}
+};
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);

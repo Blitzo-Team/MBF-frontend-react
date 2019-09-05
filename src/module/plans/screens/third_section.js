@@ -18,7 +18,7 @@ class App extends Component {
   first = () => {
     return (
       <div>
-        <img src={First} style={{ width: "100%", height: "600px" }} />
+        <img src={First} style={{ width: "100%", height: "700px" }} />
       </div>
     );
   };
@@ -78,8 +78,7 @@ class App extends Component {
                 style={{
                   color: "#616161",
                   height: "120px",
-                  borderRight: "2px solid #6ACBDF",
-                  
+                  borderRight: "2px solid #6ACBDF"
                 }}
               >
                 STAGE 4/5
@@ -105,10 +104,10 @@ class App extends Component {
                   color: "#616161",
                   height: "120px",
                   borderRight: "2px solid #6ACBDF",
-                  fontSize: '13px',
+                  fontSize: "13px"
                 }}
               >
-                  OUR RECOMMENDATION
+                OUR RECOMMENDATION
               </Col>
 
               <Col span={17}>

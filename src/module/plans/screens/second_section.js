@@ -18,7 +18,7 @@ class App extends Component {
   first = () => {
     return (
       <div>
-        <img src={First} style={{ width: "100%", height: "600px" }} />
+        <img src={First} style={{ width: "100%", height: "700px" }} />
       </div>
     );
   };
@@ -71,7 +71,7 @@ class App extends Component {
       <div style={{ color: "white", padding: "100px 30px 40px 100px" }}>
         <Row gutter={16}>
           <Col span={24}>
-            <SizeForm {...this.props}/>
+            <SizeForm {...this.props} />
           </Col>
         </Row>
       </div>

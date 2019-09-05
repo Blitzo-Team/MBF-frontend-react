@@ -340,18 +340,25 @@ class App extends Component {
             style={
               this.state.collapsed == true
                 ? {
-                    position: "absolute",
+                    position: "fixed",
                     zIndex: 999,
-                    width: "131vh"
+                    width: "100%"
                   }
                 : {
-                    position: "absolute",
+                    position: "fixed",
                     zIndex: 999,
-                    width: "118vh"
+                    width: "100%"
                   }
             }
           >
-            <Parallax strength={200}>
+            <Parallax
+              strength={200}
+              className={
+                this.state.collapsed === true
+                  ? "parallax-content-collapsed"
+                  : "parallax-content"
+              }
+            >
               <div className="header-logo" />
 
               <Menu

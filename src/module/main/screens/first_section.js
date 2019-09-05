@@ -22,7 +22,9 @@ class App extends Component {
           <section
             style={{
               width: "100%",
-              height: "600px",
+              height: "700px",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
               backgroundImage: `url(${First})`
             }}
           >
@@ -32,10 +34,14 @@ class App extends Component {
                 textAlign: "right",
                 fontSize: "60px",
                 fontWeight: "bolder",
-                marginBottom: '50px'
+                marginBottom: "50px"
               }}
             >
-              <p> <br />FUEL UP </p>
+              <p>
+                {" "}
+                <br />
+                FUEL UP{" "}
+              </p>
             </div>
 
             <div
@@ -45,10 +51,9 @@ class App extends Component {
                 textAlign: "right",
                 fontSize: "70px",
                 fontWeight: "bolder"
-              }}>
-              <p>
-                YOUR DAY
-              </p>
+              }}
+            >
+              <p>YOUR DAY</p>
             </div>
             <div
               className="container"
@@ -57,7 +62,8 @@ class App extends Component {
                 textAlign: "right",
                 fontSize: "70px",
                 fontWeight: "bolder"
-              }}>
+              }}
+            >
               <p>
                 <br />
                 <Button
@@ -67,8 +73,8 @@ class App extends Component {
                     // height: "50px",
                     width: "120px",
                     fontSize: "10px",
-                    zIndex: '999',
-                    border: '1px solid #6ACBDF'
+                    zIndex: "999",
+                    border: "1px solid #6ACBDF"
                   }}
                 >
                   VIEW OPTIONS
@@ -86,7 +92,7 @@ class App extends Component {
           <section
             style={{
               width: "100% ",
-              height: "600px",
+              height: "700px",
               backgroundSize: "cover",
               backgroundImage: `url(${Second})`
             }}
@@ -96,9 +102,12 @@ class App extends Component {
               style={{
                 textAlign: "left",
                 fontSize: "70px",
-                fontWeight: "bolder",
-              }}>
-              <p><br/> <br /> FUEL UP </p>
+                fontWeight: "bolder"
+              }}
+            >
+              <p>
+                <br /> <br /> FUEL UP{" "}
+              </p>
             </div>
             <div
               className="container"
@@ -109,7 +118,10 @@ class App extends Component {
                 fontWeight: "bolder"
               }}
             >
-              <p><br/> <br />YOUR DAY </p>
+              <p>
+                <br /> <br />
+                YOUR DAY{" "}
+              </p>
             </div>
           </section>
 
@@ -122,7 +134,7 @@ class App extends Component {
           <section
             style={{
               width: "100% ",
-              height: "600px",
+              height: "700px",
               backgroundSize: "cover",
               backgroundImage: `url(${Thiord})`
             }}

@@ -18,7 +18,7 @@ class App extends Component {
   first = () => {
     return (
       <div>
-        <img src={First} style={{ width: "100%", height: "600px" }} />
+        <img src={First} style={{ width: "100%", height: "700px" }} />
       </div>
     );
   };

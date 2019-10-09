@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import BreakfastReducer from '../../admin/reducer';
+import BreakfastReducer from "../../admin/reducer";
+import MenulistReducer from "../../redux";
 
 const appReducer = combineReducers({
-   bf: BreakfastReducer
+  bf: BreakfastReducer,
+  menu: MenulistReducer
 });
 
 const rootReducer = (state, action) => {

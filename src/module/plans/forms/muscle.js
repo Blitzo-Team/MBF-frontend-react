@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Form, Input, Radio, Button } from "antd";
 import Male from "../../assets/male.png";
 import Female from "../../assets/female.png";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const WrapperForm = Form.create()(
   class extends Component {
@@ -37,7 +37,6 @@ const WrapperForm = Form.create()(
                   <img src={Male} style={{ width: "70px" }} />
 
                   <Radio.Button
-                    
                     value="male"
                     style={{
                       marginLeft: "20px",
@@ -105,33 +104,38 @@ const WrapperForm = Form.create()(
 
           <Form.Item>
             <div style={{ marginTop: "50px" }}>
-              <Link to={'/plans/size'}>
+              <Link to={"/plans/days"}>
                 <Button
-                  onClick={() => {  this.handleSubmit()}}
+                  onClick={() => {
+                    this.handleSubmit();
+                  }}
                   style={{
                     backgroundColor: "black",
                     color: "white",
                     height: "50px",
                     borderRadius: "10px",
                     marginRight: "10px"
-                  }}>
+                  }}
+                >
                   1-3 Days
                 </Button>
               </Link>
-              
-              <Link to={'/plans/size'}>
+
+              <Link to={"/plans/days"}>
                 <Button
-                  onClick={() => {  this.handleSubmit()}}
+                  onClick={() => {
+                    this.handleSubmit();
+                  }}
                   style={{
                     backgroundColor: "black",
                     color: "white",
                     height: "50px",
                     borderRadius: "10px"
-                  }}>
+                  }}
+                >
                   4+ Days
                 </Button>
               </Link>
-
             </div>
           </Form.Item>
         </Form>
@@ -150,7 +154,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <WrapperForm history={this.props.history}/>
+        <WrapperForm history={this.props.history} />
       </div>
     );
   }

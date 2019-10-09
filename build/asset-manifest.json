@@ -1,15 +1,31 @@
 {
   "files": {
-    "main.js": "/static/js/main.1c70c503.chunk.js",
-    "main.js.map": "/static/js/main.1c70c503.chunk.js.map",
+    "main.css": "/static/css/main.a9d4157f.chunk.css",
+    "main.js": "/static/js/main.5ce1d412.chunk.js",
+    "main.js.map": "/static/js/main.5ce1d412.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
     "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
     "static/css/2.4358233e.chunk.css": "/static/css/2.4358233e.chunk.css",
-    "static/js/2.7e21ac76.chunk.js": "/static/js/2.7e21ac76.chunk.js",
-    "static/js/2.7e21ac76.chunk.js.map": "/static/js/2.7e21ac76.chunk.js.map",
+    "static/js/2.e0f7f2f4.chunk.js": "/static/js/2.e0f7f2f4.chunk.js",
+    "static/js/2.e0f7f2f4.chunk.js.map": "/static/js/2.e0f7f2f4.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.0f5e904bdc3b00da10c290b479883b3b.js": "/precache-manifest.0f5e904bdc3b00da10c290b479883b3b.js",
+    "precache-manifest.00ffa83ec9fb0954d0949554b24f2fe9.js": "/precache-manifest.00ffa83ec9fb0954d0949554b24f2fe9.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/2.4358233e.chunk.css.map": "/static/css/2.4358233e.chunk.css.map"
+    "static/css/2.4358233e.chunk.css.map": "/static/css/2.4358233e.chunk.css.map",
+    "static/css/main.a9d4157f.chunk.css.map": "/static/css/main.a9d4157f.chunk.css.map",
+    "static/media/arrow.b851ff68.svg": "/static/media/arrow.b851ff68.svg",
+    "static/media/athlete.png": "/static/media/athlete.a3b29fd2.png",
+    "static/media/balance.jpeg": "/static/media/balance.b8f23220.jpeg",
+    "static/media/body.png": "/static/media/body.4c8dc4c2.png",
+    "static/media/bulkfoods.png": "/static/media/bulkfoods.57ad2710.png",
+    "static/media/carrots.jpg": "/static/media/carrots.c1566261.jpg",
+    "static/media/female.png": "/static/media/female.32f42852.png",
+    "static/media/gulay.png": "/static/media/gulay.662b871a.png",
+    "static/media/index.css": "/static/media/slide-2.669c84a8.png",
+    "static/media/muscleman.png": "/static/media/muscleman.8b702210.png",
+    "static/media/plus.17db9035.svg": "/static/media/plus.17db9035.svg",
+    "static/media/slide-3.png": "/static/media/slide-3.25520e72.png",
+    "static/media/taco.png": "/static/media/taco.253640c8.png",
+    "static/media/weightloss.jpeg": "/static/media/weightloss.be9d7b84.jpeg"
   }
 }

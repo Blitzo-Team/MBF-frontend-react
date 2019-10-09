@@ -1,22 +1,25 @@
 import React, { Component } from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import { Button, Layout, Menu, Row, Col, Icon } from "antd";
-import "./index.css";
-import Footer from "./components/footer";
 import { MENU_ITEMS, HEADER_BOUNCE } from "./data";
+import { connect } from "react-redux";
+import { BASE_URL } from "./shared/constant/url";
 
 //Components
 import { Animated } from "react-animated-css";
 import { Parallax } from "react-parallax";
+import { menulist } from "./actionCreators";
 
 //Routes
+import "./index.css";
 import ModalSlide from "./forms/banner/index";
 import Index from "module/main/index";
 import Plans from "./module/plans/index";
 import Size from "./module/plans/screens/second_section";
 import Days from "./module/plans/screens/third_section";
-
-//Components Antd
+import Fourth from "./module/plans/screens/fourth_section";
+import Fixed from "./module/plans/screens/fixed_meals";
+import Footer from "./components/footer";
 import BreakfastTable from "./admin/plan_meals/screens/breakfast";
 import BreakfastDrawer from "./admin/plan_meals/forms/breakfast_form";
 
@@ -33,7 +36,8 @@ class App extends Component {
       hover: false,
       theposition: 0,
       visible_drawer: false,
-      visible_table: false
+      visible_table: false,
+      selectedMenuId: 0
     };
   }
 
@@ -78,6 +82,10 @@ class App extends Component {
     }
   }
 
+  componentWillMount() {
+    this.props.menulist();
+  }
+
   componentDidMount() {
     window.addEventListener("scroll", this.listenToScroll);
   }
@@ -101,264 +109,49 @@ class App extends Component {
     });
   };
 
+  width = size => {
+    if (size > 1280) {
+      size = "0px 200px";
+    } else if (size > 2560) {
+      size = "0px 500px";
+    } else {
+      size = "0px 0px";
+    }
+
+    return size;
+  };
+
+  header = size => {
+    if (size <= 1024) {
+      size = "140%";
+    } else if (size > 1280) {
+      size = "100.5%";
+    } else {
+      size = "133%";
+    }
+
+    return size;
+  };
+
   render() {
+    const screenWidth = window.screen.width;
+    const menus = this.props.menus === undefined ? [] : this.props.menus;
     return (
       <Layout>
-        <Sider
-          collapsible
-          collapsed={this.state.collapsed}
-          onCollapse={this.onCollapse}
-          style={{ position: "fixed", height: "100vh", zIndex: 99999 }}
-        >
-          <h6 style={{ color: "white", padding: "10px" }}>
-            {this.state.collapsed === true ? "" : "Welcome Admin!"}
-          </h6>
-
-          <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-            <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <Icon
-                    style={{
-                      marginTop: "10px",
-                      fontSize: "20px",
-                      float: "left"
-                    }}
-                    type="edit"
-                  />
-                  <span>PAGE EDITOR</span>
-                </span>
-              }
-            >
-              <Menu.Item key="1">
-                <Icon type="pie-chart" />
-                <span
-                  onClick={() => {
-                    this.setState({ visible: true });
-                  }}
-                >
-                  Slide
-                </span>
-              </Menu.Item>
-
-              <Menu.Item key="2">
-                <Icon type="desktop" />
-                <span> Video</span>
-              </Menu.Item>
-
-              <Menu.Item key="3">
-                <Icon type="pie-chart" />
-                <span> Tabs</span>
-              </Menu.Item>
-
-              <Menu.Item key="4">
-                <Icon type="desktop" />
-                <span>Option 2</span>
-              </Menu.Item>
-            </SubMenu>
-
-            {/* Plan meal */}
-            <SubMenu
-              key="sub2"
-              title={
-                <span>
-                  <Icon
-                    style={{
-                      marginTop: "10px",
-                      fontSize: "20px",
-                      float: "left"
-                    }}
-                    type="ordered-list"
-                  />
-                  <span>PLAN MEALS</span>
-                </span>
-              }
-            >
-              {/* Breakfast */}
-
-              <SubMenu
-                key="sub3"
-                title={
-                  <span>
-                    <Icon
-                      style={{
-                        marginTop: "10px",
-                        fontSize: "20px",
-                        float: "left"
-                      }}
-                      type="clock-circle"
-                    />
-                    <span>Breakfast</span>
-                  </span>
-                }
-              >
-                <Menu.Item
-                  key="9"
-                  onClick={() => {
-                    this.setState({ visible_drawer: true });
-                  }}
-                >
-                  <span>Add Meals</span>
-                </Menu.Item>
-
-                <Menu.Item
-                  key="8"
-                  onClick={() => {
-                    this.setState({ visible_table: true });
-                  }}
-                >
-                  <span>Fixed Meals</span>
-                </Menu.Item>
-              </SubMenu>
-
-              {/* end breakfast */}
-
-              {/* Snakcs */}
-              <SubMenu
-                key="sub4"
-                title={
-                  <span>
-                    <Icon
-                      style={{
-                        marginTop: "10px",
-                        fontSize: "20px",
-                        float: "left"
-                      }}
-                      type="experiment"
-                    />
-                    <span>Snacks</span>
-                  </span>
-                }
-              >
-                <Menu.Item
-                  key="10"
-                  onClick={() => {
-                    this.setState({ visible_drawer: true });
-                  }}
-                >
-                  <span>Add Meals</span>
-                </Menu.Item>
-
-                <Menu.Item
-                  key="11"
-                  onClick={() => {
-                    this.setState({ visible_drawer: true });
-                  }}
-                >
-                  <span>Fixed Meals</span>
-                </Menu.Item>
-              </SubMenu>
-              {/* End snacks */}
-
-              {/* Lunch */}
-              <SubMenu
-                key="sub5"
-                title={
-                  <span>
-                    <Icon
-                      style={{
-                        marginTop: "10px",
-                        fontSize: "20px",
-                        float: "left"
-                      }}
-                      type="bell"
-                    />
-                    <span>Lunch</span>
-                  </span>
-                }
-              >
-                <Menu.Item
-                  key="13"
-                  onClick={() => {
-                    this.setState({ visible_drawer: true });
-                  }}
-                >
-                  <span>Add Meals</span>
-                </Menu.Item>
-
-                <Menu.Item
-                  key="14"
-                  onClick={() => {
-                    this.setState({ visible_drawer: true });
-                  }}
-                >
-                  <span>Fixed Meals</span>
-                </Menu.Item>
-              </SubMenu>
-              {/* End Lunch */}
-
-              {/* Dinner */}
-              <SubMenu
-                key="sub6"
-                title={
-                  <span>
-                    <Icon
-                      style={{
-                        marginTop: "10px",
-                        fontSize: "20px",
-                        float: "left"
-                      }}
-                      type="book"
-                    />
-                    <span>Dinner</span>
-                  </span>
-                }
-              >
-                <Menu.Item
-                  key="15"
-                  onClick={() => {
-                    this.setState({ visible_drawer: true });
-                  }}
-                >
-                  <span>Add Meals</span>
-                </Menu.Item>
-
-                <Menu.Item
-                  key="16"
-                  onClick={() => {
-                    this.setState({ visible_drawer: true });
-                  }}
-                >
-                  <span>Fixed Meals</span>
-                </Menu.Item>
-              </SubMenu>
-              {/* End Dinner */}
-              {/* end plan meals */}
-            </SubMenu>
-          </Menu>
-        </Sider>
-
         <Layout
-          style={
-            this.state.collapsed === false
-              ? { marginLeft: "205px", padding: "0px 100px" }
-              : { marginLeft: "80px", padding: "0px 100px" }
-          }
+          style={{
+            marginLeft: "0px",
+            padding: this.width(screenWidth)
+          }}
         >
           <Header
-            style={
-              this.state.collapsed == true
-                ? {
-                    position: "fixed",
-                    zIndex: 999,
-                    width: "100%"
-                  }
-                : {
-                    position: "fixed",
-                    zIndex: 999,
-                    width: "100%"
-                  }
-            }
+            style={{
+              position: "fixed",
+              zIndex: 999,
+              width: this.header(screenWidth)
+            }}
           >
-            <Parallax
-              strength={200}
-              className={
-                this.state.collapsed === true
-                  ? "parallax-content-collapsed"
-                  : "parallax-content"
-              }
-            >
+            <Parallax strength={200} className="parallax-content">
               <div className="header-logo" />
 
               <Menu
@@ -440,26 +233,48 @@ class App extends Component {
 
           <div
             className={
-              this.state.hover === false ? " header-menu" : " header-menu-not"
+              this.state.hover === false ? "header-menu" : " header-menu-not"
             }
           >
             <Row>
-              <Col span={10}>
+              <Col span={10} offset={2}>
                 <ul
                   style={{
                     listStyle: "none",
                     opacity: 1,
-                    paddingTop: "50px",
-                    marginLeft: "250px"
+                    paddingTop: "20px",
+                    marginLeft: "250px",
+                    opacity: 5
                   }}
                 >
-                  {HEADER_BOUNCE.map(item => {
+                  <li>
+                    <h6
+                      style={{
+                        fontFamily: "Rajdhani, sans-serif",
+                        color: "white"
+                      }}
+                    >
+                      FIXED SETS{" "}
+                    </h6>
+                  </li>
+                  {menus.map(item => {
                     return (
-                      <li>
+                      <li key={item.id}>
                         <a
-                          href={item.url}
-                          style={{ color: "white", fontSize: "16px" }}
-                          onClick={() => this.setState({ hover: false })}
+                          href={"http://localhost:7000/#/plans/fixed"}
+                          style={{
+                            fontFamily: "Rajdhani, sans-serif",
+                            color: "white",
+                            fontSize: "16px",
+                            fontWeight: "bold"
+                          }}
+                          key={item.id}
+                          onClick={() => {
+                            this.setState({
+                              hover: false,
+                              selectedMenuId: item.id
+                            });
+                          }}
                         >
                           <Animated animationOut="bounce" isVisible={false}>
                             {item.title}
@@ -469,46 +284,6 @@ class App extends Component {
                     );
                   })}
                 </ul>
-              </Col>
-
-              <Col span={4}>
-                <Animated animationOut="bounce" isVisible={false}>
-                  <ul
-                    style={{
-                      listStyle: "none",
-                      opacity: 1,
-                      paddingTop: "50px",
-                      fontSize: "16px"
-                    }}
-                  >
-                    <li>
-                      <a style={{ color: "white" }}> VEGETARIAN </a>
-                    </li>
-                    <li>
-                      <a style={{ color: "white" }}> LOW CARB </a>
-                    </li>
-                    <li>
-                      <a style={{ color: "white" }}> LUNCH PACKS </a>
-                    </li>
-                  </ul>
-                </Animated>
-              </Col>
-
-              <Col span={4}>
-                <Animated animationOut="bounce" isVisible={false}>
-                  <ul
-                    style={{
-                      listStyle: "none",
-                      opacity: 1,
-                      paddingTop: "50px",
-                      fontSize: "16px"
-                    }}
-                  >
-                    <li>
-                      <a style={{ color: "white" }}> COUPLE PLANS </a>
-                    </li>
-                  </ul>
-                </Animated>
               </Col>
             </Row>
           </div>
@@ -529,6 +304,17 @@ class App extends Component {
                 <Route path="/plans" exact component={Plans} />
                 <Route path="/plans/size" exact component={Size} />
                 <Route path="/plans/days" exact component={Days} />
+                <Route path="/plans/meals" exact component={Fourth} />
+                <Route
+                  path="/plans/fixed"
+                  exact
+                  component={() => (
+                    <Fixed
+                      {...this.props}
+                      selectedMenuId={this.state.selectedMenuId}
+                    />
+                  )}
+                />
               </Switch>
             </HashRouter>
           </Content>
@@ -556,4 +342,17 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    menus: state.menu.menus
+  };
+};
+
+const mapDispatchToProps = {
+  menulist
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

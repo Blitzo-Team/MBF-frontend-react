@@ -5,7 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.0.1",
     "antd": "^3.17.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "draft-js": "^0.10.5",
     "draft-js-anchor-plugin": "^2.0.2",
